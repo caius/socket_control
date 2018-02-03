@@ -13,23 +13,23 @@ protocol = 1
 pulseLength = 314
 
 on_codes = {
-  'A': '1394001',
-  'B': '1397073',
-  'C': '1397841',
-  'D': '1398033',
+  'A': 1394001,
+  'B': 1397073,
+  'C': 1397841,
+  'D': 1398033,
 }
 
 off_codes = {
-  'A': '1394004',
-  'B': '1397076',
-  'C': '1397844',
-  'D': '1398036',
+  'A': 1394004,
+  'B': 1397076,
+  'C': 1397844,
+  'D': 1398036,
 }
 
 # Send a code for a group
 def codesend(code):
   print("Sending code=%s, protocol=%s, pulseLength=%s" % (code, protocol, pulseLength))
-  rfdevice.tx_code(code, protocol, pulselength)
+  rfdevice.tx_code(code, protocol, pulseLength)
   return
 
 @app.post('/switches/<id:re:[A-D]>/on', method='POST')
